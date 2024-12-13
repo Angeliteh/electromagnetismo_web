@@ -3689,26 +3689,19 @@ input, select, textarea {
 				width: 1.5em;
 			}
 
-		#banner:after {
-			pointer-events: none;
-			-moz-transition: opacity 3s ease-in-out;
-			-webkit-transition: opacity 3s ease-in-out;
-			-ms-transition: opacity 3s ease-in-out;
-			transition: opacity 3s ease-in-out;
-			-moz-transition-delay: 1.25s;
-			-webkit-transition-delay: 1.25s;
-			-ms-transition-delay: 1.25s;
-			transition-delay: 1.25s;
-			content: '';
-			background: #2e3842;
-			display: block;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			left: 0;
-			top: 0;
-			opacity: 0;
-		}
+			#banner:after {
+				opacity: 1; /* Asegúrate de que esté visible */
+				background: #2e3842;
+				display: block;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				left: 0;
+				top: 0;
+				z-index: 0; /* Asegúrate de que el fondo esté por debajo */
+				transition: opacity 3s ease-in-out; /* Mantén la transición de opacidad */
+			 }
+			 
 
 		@media screen and (max-width: 736px) {
 
@@ -4013,8 +4006,36 @@ input, select, textarea {
 		width: 100%;
 		box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
 		align-items: center; /* Alinea los elementos en la parte superior */
+		flex-wrap: wrap; /* Permite que los elementos se apilen automáticamente en pantallas pequeñas */
+	}
+	.parent-container {
+		min-height: 400px; /* Asegura suficiente altura para centrar verticalmente */
+		position: relative;
 	}
 
+	/* Contenedor de imágenes y videos */
+	.media-container {
+		display: flex;
+		flex-direction: column; /* Coloca elementos (imágenes/videos) en columna */
+		justify-content: flex-start; /* Alinea los elementos en la parte superior */
+		align-items: center; /* Centra los elementos horizontalmente */
+		gap: 20px; /* Espacio entre los elementos */
+		max-width: 800px; /* Limita el ancho máximo del contenedor */
+		margin: 0 auto; /* Centra el contenedor */
+	}
+	/* Videos */
+	.video-container {
+		width: 100%;
+		max-width: 800px; /* Limita el ancho máximo de los videos */
+		overflow: hidden; /* Asegura que el video no desborde el contenedor */
+		border-radius: 5px; /* Bordes redondeados para los videos */
+		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para videos (opcional) */
+	}
+	.video-container video {
+		width: 100%;
+		height: auto; /* Mantiene la proporción del video */
+		display: block; /* Elimina el espacio en blanco alrededor del video */
+	}
 	/* Contenido de texto */
 	.content {
 		flex: 1;
@@ -4027,7 +4048,6 @@ input, select, textarea {
 		text-align: justify;  /* Alineación del texto para mejorar la legibilidad */
 	}
 
-
 	/* Contenedor de imágenes */
 	.image {
 		flex: 1;
@@ -4035,38 +4055,93 @@ input, select, textarea {
 		max-width: 100%; /* Asegura que el contenedor no se desborde */
 		display: flex;
 		flex-direction: column; /* Coloca las imágenes una debajo de la otra */
-		gap: 20px; /* Espacio entre las imágenes */
+		gap: 200px; /* Espacio entre las imágenes */
 		align-items: center; /* Centra las imágenes horizontalmente */
 	}
-
 
 	/* Estilo de las imágenes */
 	.image img {
 		width: 100%; /* Ajusta la imagen al ancho disponible del contenedor */
-		max-width: 500px; /* Limita el tamaño máximo de las imágenes */
+		gap 40px
 		height: auto; /* Mantiene la proporción de las imágenes */
 		border-radius: 5px; /* Bordes redondeados (opcional) */
 		box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra para las imágenes (opcional) */
 	}
-	
+
+	.special-image {
+		flex-basis: 100%; /* Asegura que la imagen ocupe todo el ancho */
+		display: flex; /* Aplica flexbox dentro de este contenedor */
+		justify-content: center; /* Centra horizontalmente */
+		align-items: center; /* Centra verticalmente */
+		margin: 0 auto; /* Centra el contenedor dentro de `media-container` */
+		max-width: 800px;
+		margin-bottom: 20px; /* Añade un margen inferior para separar las imágenes */
+	}
+
+	.special-image img {
+		max-width: 100%; /* Ajusta el tamaño deseado */
+		width: 100%; /* Imagen responsiva */
+		height: auto; /* Mantiene proporción */
+	}
 
 	/* Invertir el orden de los elementos */
 	.reverse-order {
 		flex-direction: row-reverse; /* Invertir el orden de los elementos: primero la imagen a la derecha */
 	}
-
+	section {
+		margin: 50px 0; /* Espaciado vertical entre secciones */
+	}
 	pre {
 		margin: 0; /* Eliminar márgenes */
 		padding: 10px; /* Agregar un poco de espacio dentro del bloque */
 		white-space: pre-wrap; /* Ajustar el texto en varias líneas si es necesario */
 		word-wrap: break-word; /* Hacer que las palabras largas se ajusten */
-	  }
+	}
+
+	.explanation {
+		color: #f0f0f0;  /* Color de texto claro */
+		background-color: #00695c; /* Verde azulado de fondo */
+		padding: 20px;  /* Espaciado interno */
+		border-radius: 10px; /* Bordes redondeados */
+	}
+	
+	#bibliografia {
+		background-color: #00695c;  /* Fondo verde azulado oscuro */
+		padding: 40px 20px;
+		border-radius: 10px;
+		color: #ffffff; /* Texto blanco para mayor contraste */
+	}
+	
+	#bibliografia h2 {
+		color: #ffffff; /* Título en blanco */
+	}
+	
+	#bibliografia ul {
+		list-style-type: disc;
+		margin-left: 20px;
+		color: #f1f1f1; /* Color gris claro para el texto de la lista */
+	}
+	
+	#bibliografia p {
+		color: #f1f1f1; /* Color gris claro para los párrafos */
+	}
+	
+	#bibliografia a {
+		color: #ffeb3b; /* Color amarillo para los enlaces para que resalten */
+		text-decoration: none;
+	}
+	
+	#bibliografia a:hover {
+		text-decoration: underline;
+		color: #ffffff; /* Color blanco al pasar el ratón sobre el enlace */
+	}
+	
 
 	/* Media query para pantallas pequeñas */
 	@media (max-width: 768px) {
 		.container {
-			flex-direction: column;
-			align-items: center;
+			flex-direction: column; /* Fuerza el apilado del contenido */
+			align-items: center; /* Centra los elementos */
 		}
 
 		.content {
@@ -4076,11 +4151,52 @@ input, select, textarea {
 		.image {
 			max-width: 100%; /* La imagen ocupa el 100% en pantallas pequeñas */
 		}
+
 		.image img {
-			flex: 1 1 100%; /* Cada imagen ocupa todo el ancho en pantallas pequeñas */
 			max-width: 100%; /* Asegura que las imágenes ocupen todo el ancho disponible en pantallas pequeñas */
 		}
+		.media-container {
+			flex-direction: column; /* Fuerza el apilado de los medios */
+			align-items: center; /* Centra los elementos */
+		}
+
+		.video-container, .special-image {
+			max-width: 100%; /* Ajusta al 100% del ancho disponible */
+		}
 	}
+
+	#banner {
+		position: relative;
+		background-image: url('https://cdn.pixabay.com/photo/2017/08/30/07/32/earth-2692762_960_720.jpg');!important; /* URL de tu imagen */
+		background-size: cover;!important;  /* Asegura que la imagen cubra toda el área */
+		background-position: center;!important; /* Centra la imagen */
+		background-attachment: fixed;!important; /* Fija la imagen al fondo */
+		color: white; /* Color de texto blanco para contraste */
+		height: 100vh; /* Ocupa todo el alto de la pantalla */
+	}
+	
+	#banner .inner {
+		position: relative;
+		z-index: 2; /* Asegura que el contenido esté encima del fondo */
+		text-align: center;
+		padding-top: 100px; /* Añade espacio superior para el contenido */
+	}
+	
+	#banner h2 {
+		font-size: 3em;
+		margin-bottom: 20px;
+	}
+	
+	#banner p {
+		font-size: 1.2em;
+		margin-bottom: 10px;
+	}
+	
+	#banner .actions {
+		margin-top: 20px;
+	}
+	
+	
 
 
 

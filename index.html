@@ -24,7 +24,7 @@
 											<li><a href="index.html">Inicio</a></li>
 											<li><a href="#simulacion">Simulación</a></li>
 											<li><a href="#contenido">Contenido</a></li>
-											<li><a href="#contacto">Contacto</a></li>
+											<li><a href="#bibliografia">Bibliografia</a></li>
 										</ul>
 									</div>
 								</li>
@@ -43,7 +43,7 @@
 								<li><a href="#simulacion" class="button primary">Ir a Simulación</a></li>
 							</ul>
 						</div>
-						<a href="#contenido" class="more scrolly">Descubrir más</a>
+						<a href="#contenido" class="more scrolly">Continuar</a>
 					</section>
 
 				
@@ -84,7 +84,7 @@
 
 
 					<!-- Sección 1: Campo Magnético Terrestre -->
-					<section class="spotlight">
+					<section id="Terrestre" class="spotlight">
 						<div class="container reverse-order">
 						<!-- Contenido de texto (izquierda) -->
 						<div class="content">
@@ -279,54 +279,118 @@
 								</p>
 							</div>
 
-							<!-- Imagen (derecha) -->
-							<div class="image">
-								<img src="images/aplicaciones.jpg" alt="Aplicaciones del Electromagnetismo" />
+							<!-- Contenedor de imágenes y videos (derecha) -->
+						<div class="media-container">
+							<!-- Imagen estática -->
+							<div class="special-image">
+								<img src="https://www.ormazabal.com/wp-content/uploads/2023/10/Que-elementos-componen-un-transformador-electrico.jpg" alt="Aplicaciones del Electromagnetismo" />
+							</div>
+
+							<!-- Video 1 -->
+							<div class="video-container">
+								<video autoplay loop muted playsinline width="100%" poster="https://via.placeholder.com/480x270">
+									<source src="https://www.shutterstock.com/shutterstock/videos/1106643933/preview/stock-footage-visualization-of-fast-moving-energy-travelling-through-power-pole-wires-over-night-sky.webm" type="video/webm">
+									Tu navegador no soporta el elemento de video.
+								</video>
+							</div>
+
+							<!-- Video 2 -->
+							<div class="video-container">
+								<video autoplay loop muted playsinline width="100%" poster="https://via.placeholder.com/480x270">
+									<source src="https://www.shutterstock.com/shutterstock/videos/3459528231/preview/stock-footage-female-patient-undergoes-mri-or-ct-scan-lies-on-bed-moving-inside-the-machine-visual-effects-of.webm">
+									Tu navegador no soporta el elemento de video.
+								</video>
 							</div>
 						</div>
 					</section>
-
+				
 					
 
 
 				
 
-				<!-- Simulación -->
-				<section id="simulacion" class="wrapper style1 special">
-					<div class="inner">
-					  <header class="major">
-						<h2>Simulador de Campo Magnético</h2>
-						<p>Observa cómo partículas cargadas interactúan con un campo magnético.</p>
-					  </header>
-					  <div id="canvas-container">
-						<!-- El canvas se genera dinámicamente -->
-					  </div>
-					  <div id="controls">
-						<button id="startSimulation">Iniciar Simulación</button>
-						<button id="stopSimulation">Detener Simulación</button>
-						<label for="fieldStrength">Intensidad del campo (B):</label>
-						<input id="fieldStrength" type="range" min="0" max="0.1" step="0.001" value="0.05" />
-						<label for="chargeValue">Magnitud de carga:</label>
-						<input id="chargeValue" type="range" min="0.1" max="2" step="0.1" value="1" />
-					  </div>
-					  <p>Usa los controles para ajustar la simulación en tiempo real.</p>
-					</div>
-				  </section>
-				  
+					<!-- Simulación -->
+					<section id="simulacion" class="wrapper style1 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Simulador de Campo Magnético</h2>
+								<p>Observa cómo partículas cargadas interactúan con un campo magnético.</p>
+							</header>
+							<div id="canvas-container">
+							<!-- El canvas se genera dinámicamente -->
+							</div>
+							<div id="controls">
+								<button id="startSimulation">Iniciar Simulación</button>
+								<button id="stopSimulation">Detener Simulación</button>
+								<label for="fieldStrength">Intensidad del campo (B):</label>
+								<input id="fieldStrength" type="range" min="0" max="0.1" step="0.001" value="0.05" />
+								<label for="chargeValue">Magnitud de carga:</label>
+								<input id="chargeValue" type="range" min="0.1" max="2" step="0.1" value="1" />
+							</div>
+							<p>Usa los controles para ajustar la simulación en tiempo real.</p>
+						</div>
+
+						<!-- Explicación -->
+						<div class="explanation">
+							<header class="minor">
+								<h3>¿Qué estás viendo en la simulación?</h3>
+							</header>
+							<p>
+								Este simulador muestra cómo las partículas cargadas interactúan con un campo magnético constante, 
+								aplicando la <strong>fuerza de Lorentz</strong>. La fuerza de Lorentz es una fuerza electromagnética que 
+								actúa sobre partículas cargadas en movimiento en presencia de un campo magnético, y se calcula como:
+							</p>
+							<pre>
+								F = q * (v x B)
+							</pre>
+							<p>
+								Donde:
+								<ul>
+									<li><strong>q</strong> es la magnitud de la carga de la partícula.</li>
+									<li><strong>v</strong> es la velocidad de la partícula (de izquierda a derecha en este caso).</li>
+									<li><strong>B</strong> es la intensidad del campo magnético (puedes ajustarlo con el control).</li>
+								</ul>
+							</p>
+							<p>
+								En esta simulación, puedes observar cómo las partículas cargadas describen trayectorias curvas debido a 
+								la interacción entre su velocidad inicial y la fuerza de Lorentz. El radio de la curva depende de la intensidad 
+								del campo magnético y la magnitud de la carga.
+							</p>
+							<p>
+								Los controles te permiten:
+								<ul>
+									<li><strong>Ajustar la intensidad del campo magnético:</strong> Cambiar el valor del campo afecta la fuerza ejercida sobre las partículas.</li>
+									<li><strong>Ajustar la magnitud de las cargas:</strong> Las cargas más grandes experimentan fuerzas más intensas, alterando sus trayectorias.</li>
+								</ul>
+							</p>
+							<p>
+								La fuerza resultante sobre las partículas es siempre perpendicular tanto a la velocidad inicial como al campo magnético, 
+								lo que causa un movimiento circular o helicoidal dependiendo de las condiciones iniciales.
+							</p>
+						</div>
+					</section>
 				
 				
-				<!-- Contacto -->
-				<section id="contacto" class="wrapper style3 special">
-					<div class="inner">
-						<header class="major">
-							<h2>Contacto</h2>
-							<p>Si tienes preguntas o necesitas ayuda, no dudes en comunicarte.</p>
-						</header>
-						<ul class="actions special">
-							<li><a href="#" class="button primary">Enviar Mensaje</a></li>
-						</ul>
-					</div>
-				</section>
+					<!-- bibilografia -->
+					<section id="bibliografia" class="wrapper style3 special">
+						<div class="inner">
+							<header class="major">
+								<h2>Bibliografía</h2>
+								<p>A continuación se listan las fuentes y recursos utilizados para obtener la información en este sitio web.</p>
+							</header>
+							<div class="content">
+								<h3>Fuentes</h3>
+								<ul>
+									<li>Física Universitaria, de Hugh D. Young y Roger A. Freedman.</li>
+									<li>Introducción al Electromagnetismo, de David J. Griffiths.</li>
+									<li>Artículos científicos y recursos online sobre el electromagnetismo.</li>
+								</ul>
+								<h3>Imágenes y Videos</h3>
+								<p>La mayoría de las imágenes y videos utilizados en este sitio provienen de <a href="https://www.shutterstock.com" target="_blank" rel="noopener noreferrer">www.shutterstock.com</a>.</p>
+							</div>
+						</div>
+					</section>
+					
 				
 				<!-- Footer -->
 					<footer id="footer">
